@@ -14,11 +14,14 @@ TurboLPC is a fast, simple yet powerful Python library that provides the functio
 
 ### Exceptional Speed
 TurboLPC is engineered for performance, offering LPC modeling functions that are significantly faster—by orders of magnitude—compared to other libraries like Spectrum. This means you can handle larger datasets and more complex computations without compromising on speed.
-![](media/execution_time_perf_plot.png)
+![](https://github.com/MDFahimAnjum/TurboLPC/blob/master/media/execution_time_perf_plot.png?raw=true)
 ### Advanced Frequency-Warping Capabilities
 TurboLPC goes beyond standard LPC with its frequency-warped LPC feature. This advanced variation estimates spectral powers with a non-uniform resolution, addressing the practical reality that useful information in time series data is often localized in higher or lower frequencies rather than being uniformly distributed. This capability allows for more accurate and insightful spectral analysis, making TurboLPC ideal for applications requiring dynamic frequency resolution.
-![Description of Image](media/psd_example.png)
+![](https://github.com/MDFahimAnjum/TurboLPC/blob/master/media/psd_example.png?raw=true)
 
+### Generate Signals from LPC Model
+Choose TurboLPC for its powerful signal generation capabilities. Not only does TurboLPC excel in LPC modeling, but it also allows you to generate new signal from model parameters that has the same spectral properties, providing a comprehensive toolset for signal processing, analysis and data augmentation.
+![](https://github.com/MDFahimAnjum/TurboLPC/blob/master/media/reconstruct_ts.png?raw=true)
 
 ## Installation
 
@@ -454,6 +457,10 @@ plt.xlabel('LPC order')
 plt.ylabel('MSE Error')
 plt.show()
 ```
+Here we test two things:
+- Standard LPC and Frequency-warped LPC with 0 warping coefficient should provide same power spectrum
+- LPC coefficients going through tf2zpk and zpk2tf should give identical results (x=tf2zpk(zpk2tf(x)))
+![](https://github.com/MDFahimAnjum/TurboLPC/blob/master/media/numerical_error.png?raw=true)
 
 ## `freqz`
 The `freqz` function calculates the power spectrum from Linear Predictive Coding (LPC) coefficients. It provides an easy-to-use interface for analyzing the frequency response of a system defined by its LPC coefficients.
