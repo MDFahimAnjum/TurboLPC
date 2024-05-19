@@ -1,8 +1,8 @@
-# TurboLPC
+![](https://github.com/MDFahimAnjum/TurboLPC/blob/master/media/logo.png?raw=true)
 
 TurboLPC is a fast, simple yet powerful Python library that provides the functionality of Linear Predictive Coding for signals. This README will guide you through the setup and usage of TurboLPC.
 
-## Features
+## Features of TurboLPC
 
 - **Fast LPC Modeling:** Quickly calculate LPC coefficients for time series data using Burg's method.
 - **Frequency-Warping in LPC Modeling:** Apply frequency-warping in LPC modeling for dynamic spectral resolution.
@@ -25,10 +25,17 @@ Choose TurboLPC for its powerful signal generation capabilities. Not only does T
 
 ## Installation
 
+### Install from PyPI
 You can install TurboLPC using pip:
 
 ```bash
 pip install turbolpc
+```
+### Install from source
+```bash
+git clone git@github.com/MDFahimAnjum/TurboLPC.git
+cd TurboLPC
+python setup.py install
 ```
 
 # Usage
