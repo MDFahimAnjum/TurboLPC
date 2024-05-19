@@ -3,11 +3,22 @@
 TurboLPC is a fast, simple yet powerful Python library that provides the functionality of Linear Predictive Coding for signals. This README will guide you through the setup and usage of TurboLPC.
 
 ## Features
-- **Fast algorithm for LPC modeling:** Calculate LPC coefficients using Burg's method for timeseries data. _The LPC modeling functions are orders of magnitude times faster compared to other libraries_
-- **Fast algorithm for Frequency-warped LPC modeling:** Calculate Frequency-warped LPC coefficients for Burg's Method.
-- **Cepstrum Coefficient:** Calculate cepstral coefficients from LPC model coefficients and vice versa
-- **Time series generation from LPC model:** Generate time series using LPC model coefficients
-- **PSD from LPC model:**  Calculate LPC model-based power spectrum density estimate of time series data
+
+- **Fast LPC Modeling:** Quickly calculate LPC coefficients for time series data using Burg's method.
+- **Frequency-Warping in LPC Modeling:** Apply frequency-warping in LPC modeling for dynamic spectral resolution.
+- **Cepstrum Coefficients:** Easily convert between LPC model coefficients and cepstral coefficients.
+- **Time Series Generation:** Generate time series data from LPC model coefficients with ease.
+- **Power Spectrum Density Estimation:** Obtain precise LPC model-based power spectrum density estimates for your time series data.
+
+## Why Choose TurboLPC?
+
+### Exceptional Speed
+TurboLPC is engineered for performance, offering LPC modeling functions that are significantly faster—by orders of magnitude—compared to other libraries like Spectrum. This means you can handle larger datasets and more complex computations without compromising on speed.
+![](media/execution_time_perf_plot.png)
+### Advanced Frequency-Warping Capabilities
+TurboLPC goes beyond standard LPC with its frequency-warped LPC feature. This advanced variation estimates spectral powers with a non-uniform resolution, addressing the practical reality that useful information in time series data is often localized in higher or lower frequencies rather than being uniformly distributed. This capability allows for more accurate and insightful spectral analysis, making TurboLPC ideal for applications requiring dynamic frequency resolution.
+![Description of Image](media/psd_example.png)
+
 
 ## Installation
 
@@ -433,13 +444,14 @@ for i, lpc_order in enumerate(lpc_orders):
 
 
 # plot
-plt.figure()
-plt.semilogy(lpc_orders,error1,label="LPC vs FW_LPC")
-plt.semilogy(lpc_orders,error1,label="tf2zpk -> zpk2tf")
-plt.title('Error')
+plt.figure(figsize=(11, 4))
+plt.semilogy(lpc_orders,error1,label=r"$LPC(x)-LPC_{Freq. Warped}(x,warp=0)$", marker='d', linestyle='--')
+plt.semilogy(lpc_orders,error1,label=r"$x-tf2zpk(zpk2tf(x))$", marker='.', linestyle=':')
+plt.title('Numerical Error')
+plt.grid(True, which='both', linestyle='--')  # Optional: add grid for better readability
 plt.legend()
 plt.xlabel('LPC order')
-plt.ylabel('Error')
+plt.ylabel('MSE Error')
 plt.show()
 ```
 
