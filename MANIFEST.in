@@ -1,5 +1,5 @@
 include README.md
 include LICENSE
 include requirements.txt
-recursive-include pylpc *.py
+recursive-include turbolpc *.py
 include example_notebook.ipynb
