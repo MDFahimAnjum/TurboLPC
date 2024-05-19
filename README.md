@@ -2,6 +2,8 @@
 
 TurboLPC is a fast, simple yet powerful Python library that provides the functionality of Linear Predictive Coding for signals. This README will guide you through the setup and usage of TurboLPC.
 
+## What is Linear Predictive Coding?
+LPC is a method used in signal processing to estimate the stochastic random process of a signal. It models the spectral envelope of a signal and predicts future signal values based on past values, making it useful for speech and audio analysis, data compression, and feature extraction.
 ## Features of TurboLPC
 
 - **Fast LPC Modeling:** Quickly calculate LPC coefficients for time series data using Burg's method.
